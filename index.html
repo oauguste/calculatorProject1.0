@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -24,12 +24,15 @@
     <section class="calculator-section">
         <div class="calculator-frame">
             <div class="display-screen">
-
-
+                <h2 class="display-text"></h2>
+                <h2 class="display-text display-second-text display-hidden "></h2>
             </div>
             <div class="calculator-misc">
                 <div class="text1">
-                    <h3>TEXAS INSTRUMENTS</h3>
+                    <h3 class="texas-text">TEXAS INSTRUMENTS</h3>
+                    <div class="solar-screen">
+
+                    </div>
 
                 </div>
                 <div class="text2">
@@ -37,9 +40,7 @@
                         TI-108
                     </h2>
                 </div>
-                <div class="solar-screen">
 
-                </div>
             </div>
             <div class="all-buttons">
                 <div class="buttons-container">
@@ -52,27 +53,27 @@
                         <button class="function-button">M+</button>
                     </div>
                     <div class="numbers-button-container">
-                        <button class="numbers-button">7</button>
-                        <button class="numbers-button">8</button>
-                        <button class="numbers-button">9</button>
-                        <button class="numbers-button">4</button>
-                        <button class="numbers-button">5</button>
-                        <button class="numbers-button">6</button>
-                        <button class="numbers-button">1</button>
-                        <button class="numbers-button">2</button>
-                        <button class="numbers-button">3</button>
-                        <button class="on-clear-button">ON/C</button>
-                        <button class="numbers-button">0</button>
-                        <button class="numbers-button">.</button>
+                        <button class="numbers-button" value=7>7</button>
+                        <button class="numbers-button" value=8>8</button>
+                        <button class="numbers-button" value=9>9</button>
+                        <button class="numbers-button" value=4>4</button>
+                        <button class="numbers-button" value=5>5</button>
+                        <button class="numbers-button" value=6>6</button>
+                        <button class="numbers-button" value=1>1</button>
+                        <button class="numbers-button" value=2>2</button>
+                        <button class="numbers-button" value=3>3</button>
+                        <button class="on-clear-button" value=on/c>ON/C</button>
+                        <button class="numbers-button" value=0>0</button>
+                        <button class="numbers-button" value=.>.</button>
                     </div>
 
                 </div>
                 <div class="operation-buttons-container">
-                    <button class="operation-button">&#xf7;</button>
-                    <button class="operation-button">x</button>
-                    <button class="operation-button">-</button>
-                    <button class="operation-button">+</button>
-                    <button class="operation-button equal-button">=</button>
+                    <button class="operation-button" value="&#xf7">&#xf7;</button>
+                    <button class="operation-button" value="*">x</button>
+                    <button class="operation-button" value="-">-</button>
+                    <button class="operation-button" value="+">+</button>
+                    <button class="operation-button equal-button" value="=">=</button>
 
                 </div>
             </div>
