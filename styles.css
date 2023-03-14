@@ -23,12 +23,12 @@
 .display-text {
   width: auto;
 }
-.display-hidden {
+/* .display-hidden {
   display: none;
 }
 .display-second-text {
   display: none;
-}
+} */
 
 .solar-screen {
   background-color: #313b33;
