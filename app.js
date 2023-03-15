@@ -53,6 +53,14 @@ class Calculator {
     const prev = parseFloat(this.previousOperand);
     const curr = parseFloat(this.currentOperand);
     if (isNaN(prev) || isNaN(curr)) return;
+    if (this.operator === "/" && curr === 0) {
+      this.currentOperand = "Error: Division by zero";
+      this.previousOperand = "";
+      this.operator = undefined;
+      this.currentTextElement.innerText =
+        this.currentOperand;
+      return;
+    }
     switch (this.operator) {
       case "+":
         result = prev + curr;
@@ -63,7 +71,7 @@ class Calculator {
       case "*":
         result = prev * curr;
         break;
-      case "&#xf7":
+      case "/":
         result = prev / curr;
         break;
       default:
@@ -87,14 +95,12 @@ const calculator = new Calculator(screen);
 numbBtns.forEach(function (btn) {
   btn.addEventListener("click", function () {
     calculator.appendNumber(btn.value);
-    // calculator.updateDisplay();
   });
 });
 
 operationBtn.forEach(function (btn) {
   btn.addEventListener("click", function () {
     calculator.chooseOperation(btn.value);
-    // calculator.updateDisplay();
   });
 });
 
