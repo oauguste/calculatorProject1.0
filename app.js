@@ -54,7 +54,7 @@ class Calculator {
     const curr = parseFloat(this.currentOperand);
     if (isNaN(prev) || isNaN(curr)) return;
     if (this.operator === "/" && curr === 0) {
-      this.currentOperand = "Error: Division by zero";
+      this.currentOperand = "ERROR";
       this.previousOperand = "";
       this.operator = undefined;
       this.currentTextElement.innerText =
