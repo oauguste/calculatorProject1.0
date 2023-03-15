@@ -31,41 +31,32 @@ class Calculator {
       this.currentOperand.includes(".")
     ) {
       return;
-    } else if (
-      this.currentTextElement.innerText === this.operator
-    ) {
-      this.currentOperand = "";
-      this.currentTextElement.innerText =
-        this.currentOperand;
-      this.currentOperand =
-        this.currentOperand.toString() + number.toString();
-      this.currentTextElement.innerText =
-        this.currentOperand;
-    } else {
-      this.currentOperand =
-        this.currentOperand.toString() + number.toString();
     }
+    this.currentOperand =
+      this.currentOperand.toString() + number.toString();
+    this.currentTextElement.innerText = this.currentOperand;
   }
 
   chooseOperation(operation) {
-    this.operator = operation;
-    if (this.currentOperand === this.operator) return;
-    this.currentOperand = this.operator;
-    this.previousOperand = this.currentOperand;
-    if (this.currentOperand != undefined) {
+    if (this.currentOperand === "") return;
+    if (this.previousOperand !== "") {
       this.compute();
     }
-    // this.currentOperand = "";
+    this.operator = operation;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = "";
+    this.currentTextElement.innerText = this.operator;
   }
 
   compute() {
     let result;
     const prev = parseFloat(this.previousOperand);
     const curr = parseFloat(this.currentOperand);
-    if (isNaN(prev) || isNaN(current)) return;
-    switch (this.operation) {
+    if (isNaN(prev) || isNaN(curr)) return;
+    switch (this.operator) {
       case "+":
         result = prev + curr;
+        break;
       case "-":
         result = prev - curr;
         break;
@@ -81,16 +72,13 @@ class Calculator {
     this.currentOperand = result;
     this.operator = undefined;
     this.previousOperand = "";
+    this.currentTextElement.innerText = result;
   }
 
   updateDisplay() {
-    if (
-      this.currentTextElement.innerText !== this.operator
-    ) {
+    {
       this.currentTextElement.innerText =
         this.currentOperand;
-    } else {
-      return;
     }
   }
 }
@@ -99,13 +87,22 @@ const calculator = new Calculator(screen);
 numbBtns.forEach(function (btn) {
   btn.addEventListener("click", function () {
     calculator.appendNumber(btn.value);
-    calculator.updateDisplay();
+    // calculator.updateDisplay();
   });
 });
 
 operationBtn.forEach(function (btn) {
   btn.addEventListener("click", function () {
     calculator.chooseOperation(btn.value);
-    calculator.updateDisplay();
+    // calculator.updateDisplay();
   });
+});
+
+equalBtn.addEventListener("click", () => {
+  calculator.compute();
+});
+
+onClearBtn.addEventListener("click", () => {
+  calculator.clear();
+  calculator.updateDisplay();
 });

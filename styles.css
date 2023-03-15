@@ -108,3 +108,8 @@
   grid-gap: 5px;
   margin-bottom: 2px;
 }
+.equal-button {
+  background-color: #bc234d;
+  color: #e5e9ca;
+  width: 45px;
+}
